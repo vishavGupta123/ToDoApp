@@ -1,0 +1,82 @@
+body{
+    margin: 10px;
+    font-family: sans-serif;
+    border:2px solid magenta;
+    margin:10px 250px 10px 250px;
+}
+h1{
+    text-align: center;
+    color:grey;
+}
+
+input[type=text]{
+    width:100%;
+    padding:10px;
+    border:none;
+    background-color: transparent;
+}
+
+#flexbox{
+    display: flex;
+    justify-content: space-between;
+}
+#category{
+    width:50%;
+    border:1px solid grey;
+}
+#date{
+    width:50%;
+    border:1px solid grey;
+}
+#category select{
+    border:none;
+    width:100%;
+    font-weight: bolder;
+    font-family: sans-serif;
+    color:darkorange;
+}
+#date input[type=date]{
+    border:none;
+    width:100%;
+    font-weight: bolder;
+    font-family: sans-serif;
+    color:darkmagenta;
+}
+.wrapper{
+    text-align: center;
+}
+button{
+    position:relative;
+    margin-top: 10px;
+    background-color: blueviolet;
+    width:100px;
+    height:50px;
+}
+li{
+    list-style-type: none;
+    border:1px solid green;
+    margin:20px;
+    position: relative;
+}
+li div input{
+    display: inline-block;
+}
+li #categoryBox{
+    position:absolute;
+    right:0;
+    bottom:10px;
+    border:2px solid black;
+    width:100px;
+    height:50px;
+    text-align: center;
+    line-height: 45px;
+    background-color: gray;
+}
+#delete-task{
+    background-color: red;
+    width:100px;
+    height:50px;
+}
+li #task{
+    display: inline-block;
+}

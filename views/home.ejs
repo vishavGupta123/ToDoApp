@@ -1,0 +1,92 @@
+<html>
+    <head>
+        <title><%=title%></title>
+        <script src="https://kit.fontawesome.com/7975fe4cda.js" crossorigin="anonymous"></script>
+
+        <link rel="stylesheet" href="/css/home.css">
+    </head>
+    <body>
+        <h1>To Do App</h1>
+        <form action="/addTask" method="POST">
+            <div >
+                <h3>Description</h3>
+                <input type="text" name="task" placeholder="addTask" required>
+            </div>
+           <div id="flexBox">
+               <div id="category">
+                <h3>Category</h3>
+                <select name="Category" id="work" >
+                    <option value="personal">personal</option>
+                    <option value="business Work">Business work</option>
+                    <option value="family Work">Family Work</option>
+                </select>
+               </div>
+            <div id="date">
+                <h3>Date</h3>
+                <input type="date" name="Date" placeholder="addDate" required>
+            </div>
+            
+           </div>
+            
+           
+            <div class="wrapper">
+                <button type="submit"> 
+                    <i class="fas fa-plus"></i>
+                    ADD Task</button>
+                
+            </div>
+        </form>
+        <form action="/delete-tasks" method="get">
+
+            <ul class="outside-list">
+               
+                   <% for(let i of task) { %>
+                    <li class="listItem">
+                       <input type="checkbox" name="<%= i._id %>" onclick="deleteTheTask(), undeleteTheTask()"  class="checkboxFunc" >
+                       <p class="tasks"><%=i.task%></p>
+                       <p id="categoryBox"><%=i.Category%></p>
+                       <p class="dates">
+                           <i class="fas fa-calendar-alt"></i>
+                           <%=i.Date%>
+                        </p>
+                    </li>
+                    <% } %>
+            </ul>
+               <div class="wrapper">
+                <button type="submit"  id="delete-task">
+                    <i class="fas fa-trash-alt"></i>
+                    Delete Task
+                </button>
+               </div>
+           
+               
+        </form>
+      <script>
+          function deleteTheTask(){
+              var allcheckBoxes=document.getElementsByClassName("checkboxFunc");
+              var allListItems=document.getElementsByClassName("listItem");
+              var allTaskElements=document.getElementsByClassName("tasks");
+              var allDateElements=document.getElementsByClassName("dates");
+              for(var i=0;i<allcheckBoxes.length;i++){
+                  if(allcheckBoxes[i].checked==true){
+                    allTaskElements[i].style.textDecoration="line-through";
+                    allDateElements[i].style.textDecoration="line-through";                    
+                }
+              }
+          }
+          function undeleteTheTask(){
+            var allcheckBoxes=document.getElementsByClassName("checkboxFunc");
+              var allListItems=document.getElementsByClassName("listItem");
+              var allTaskElements=document.getElementsByClassName("tasks");
+              var allDateElements=document.getElementsByClassName("dates");
+              for(var i=0;i<allcheckBoxes.length;i++){
+                  if(allcheckBoxes[i].checked==false){
+                    allTaskElements[i].style.textDecoration="none";
+                    allDateElements[i].style.textDecoration="none";                    
+                }
+              }
+          }
+      </script>
+        
+    </body>
+</html>
